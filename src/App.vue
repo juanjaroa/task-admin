@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 </script>
@@ -81,5 +81,28 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
+}
+</style>
+ -->
+
+<template>
+  <RouterView />
+  <div class="my-container">
+    <BasicCard />
+    <BasicCard dark />
+  </div>
+</template>
+<script lang="ts" setup>
+import BasicCard from './components/BasicCard.vue'
+</script>
+<style lang="scss">
+.my-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 1rem;
 }
 </style>
