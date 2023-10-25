@@ -9,3 +9,15 @@
   flex-direction: column;
   
 }
+
+.glass-surface{
+  outline: 2px solid rgba(255, 0, 0, 0.05);
+  outline-offset: -2px;
+  background: linear-gradient(
+    86deg,
+    rgba(var(--v-theme-surface), 0.2) 11.14%,
+    rgba(var(--v-theme-surface), 0.3) 113.29%
+  ) !important;
+  background-blend-mode: overlay;
+  backdrop-filter: blur(2rem);
+}

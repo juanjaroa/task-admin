@@ -13,32 +13,31 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
-
-import { aliases, mdi } from "vuetify/lib/iconsets/mdi"
-import "@mdi/font/css/materialdesignicons.css"
-
+import { aliases, mdi } from 'vuetify/lib/iconsets/mdi'
+import '@mdi/font/css/materialdesignicons.css'
 
 const vuetify = createVuetify({
   theme: {
-    defaultTheme: 'dark',
-    /* themes: {
-      myCustomLightTheme,
-      light,
-      dark
-    }, */
-  },
-  icons: {
-    defaultSet: "mdi",
-    aliases,
-    sets: {
-      mdi
-    },
+    defaultTheme: 'light',
+    themes: {
+      light: {
+        colors: {
+          'surface-variant': '#337AB7',
+          secondary: '#b0bec5',
+          accent: '#8c9eff',
+          error: '#b71c1c'
+        }
+      },
+      dark: {
+        colors: {
+          primary: '#358663'
+        }
+      }
+    }
   },
   components,
-  directives,
+  directives
 })
-
-
 
 const app = createApp(App)
 
