@@ -8,6 +8,8 @@
     permanent
     class="glass-surface"
     :elevation="rail ? 12 : 0"
+    tag="header"
+    width="350"
   >
     <v-list-item prepend-avatar="/img/avatar.jpg" title="jRoa" class="profile-item" nav>
       <template v-slot:append>
@@ -26,7 +28,7 @@
 
     <v-divider></v-divider>
 
-    <v-list density="compact" class="menu-items" nav>
+    <v-list density="compact" class="menu-items" nav tag="nav">
       <v-list-item
         v-for="(item, index) in navItems"
         :key="index"
@@ -157,10 +159,9 @@ const toggleTheme = () => {
 </script>
 <style lang="scss">
 .v-navigation-drawer {
-  height: calc(100vh - 4rem) !important;
-  margin-top: 2rem;
-  margin-left: 2rem;
-  /* position: relative !important; */
+  min-height: calc(100vh - 4rem) !important;
+  position: sticky !important;
+  top: 2rem !important;
   &:not(.v-navigation-drawer--rail) {
     backdrop-filter: blur(0.5rem);
   }
@@ -169,12 +170,14 @@ const toggleTheme = () => {
     padding: 0.75rem;
     flex-direction: column;
     justify-content: space-between;
+    flex-grow: 1;
+    gap: 2rem;
     .v-list {
-      min-height: 80%;
       display: flex;
       flex-direction: column;
       width: 100%;
       gap: 0.75rem;
+      flex-grow: 1;
       &.menu-items {
         direction: rtl;
         overflow-y: auto;
