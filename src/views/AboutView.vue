@@ -13,7 +13,7 @@
         rotate: true
       }"
     >
-      <swiper-slide v-for="(card, index) in 9" :key="index"
+      <swiper-slide v-for="(card, index) in 4" :key="index"
         ><BasicCard :text="'Card ' + (index + 1)"
       /></swiper-slide>
     </swiper-container>

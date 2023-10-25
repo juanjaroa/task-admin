@@ -9,12 +9,7 @@
     class="glass-surface"
     :elevation="rail ? 12 : 0"
   >
-    <v-list-item
-      prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg"
-      title="jRoa"
-      class="profile-item"
-      nav
-    >
+    <v-list-item prepend-avatar="/img/avatar.jpg" title="jRoa" class="profile-item" nav>
       <template v-slot:append>
         <v-switch
           v-model="plop"
@@ -40,14 +35,36 @@
         :prepend-icon="item.icon"
         :color="theme.global.current.value.dark ? '#FFFFFF' : '#337AB7'"
         :base-color="theme.global.current.value.dark ? '#B4C9CF' : '#3b3638'"
-      ></v-list-item>
+      >
+        <v-overlay
+          v-if="item.subMenu"
+          activator="parent"
+          location-strategy="connected"
+          scroll-strategy="reposition"
+          close-on-content-click
+        >
+          <v-list class="glass-surface" nav>
+            <v-list-item
+              v-for="(subItem, index) in item.subMenu"
+              :key="index"
+              :title="subItem.subItem"
+              :to="subItem.route"
+              class="px-4 py-2"
+              :color="theme.global.current.value.dark ? '#FFFFFF' : '#337AB7'"
+              :base-color="theme.global.current.value.dark ? '#B4C9CF' : '#3b3638'"
+              prepend-icon="mdi-paperclip"
+            ></v-list-item>
+          </v-list>
+        </v-overlay>
+      </v-list-item>
     </v-list>
     <footer class="d-flex" style="min-width: 8rem">
       <v-btn
         variant="text"
         size="small"
-        :icon="rail ? 'mdi-pin-outline' : 'mdi-pin-off'"
-        class="ml-auto text-disabled"
+        :icon="rail ? 'mdi-pin-outline' : 'mdi-pin'"
+        class="ml-auto"
+        :class="[rail ? 'text-disabled' : 'text-medium-emphasis']"
         @click="rail = !rail"
       ></v-btn>
     </footer>
@@ -67,19 +84,33 @@ const navItems = [
     title: 'Main',
     value: 1,
     route: '/',
-    icon: 'mdi-view-dashboard-outline'
+    icon: 'mdi-view-dashboard-outline',
+    subMenu: false
   },
   {
     title: 'Planning',
     value: 2,
     route: '/about',
-    icon: 'mdi-calendar-blank-outline'
+    icon: 'mdi-calendar-blank-outline',
+    subMenu: false
   },
   {
     title: 'People',
     value: 3,
     route: '',
-    icon: 'mdi-calendar-account-outline'
+    icon: 'mdi-calendar-account-outline',
+    subMenu: [
+      {
+        subItem: 'Sub item 1',
+        route: '/',
+        icon: 'mdi-view-dashboard-outline'
+      },
+      {
+        subItem: 'Sub item 2',
+        route: '#',
+        icon: 'mdi-view-dashboard-outline'
+      }
+    ]
   },
   {
     title: 'Register',
@@ -88,38 +119,20 @@ const navItems = [
     icon: 'mdi-format-list-text'
   },
   {
-    title: 'Outside task',
+    title: 'Task manager',
     value: 5,
     route: '',
     icon: 'mdi-clipboard-text'
   },
   {
-    title: 'Task manager',
+    title: 'Accounting',
     value: 6,
     route: '',
-    icon: 'mdi-clipboard-text'
-  },
-  {
-    title: 'Items',
-    value: 7,
-    route: '',
-    icon: 'mdi-cart-outline'
-  },
-  {
-    title: 'Payments',
-    value: 8,
-    route: '',
-    icon: 'mdi-wallet-bifold-outline'
-  },
-  {
-    title: 'Accounting',
-    value: 9,
-    route: '',
-    icon: 'mdi-credit-card-outline'
+    icon: 'mdi-card-account-details-star-outline'
   },
   {
     title: 'Reports',
-    value: 10,
+    value: 7,
     route: '',
     icon: 'mdi-file-chart-outline'
   }
@@ -147,8 +160,9 @@ const toggleTheme = () => {
   height: calc(100vh - 4rem) !important;
   margin-top: 2rem;
   margin-left: 2rem;
+  /* position: relative !important; */
   &:not(.v-navigation-drawer--rail) {
-    backdrop-filter: blur(1rem);
+    backdrop-filter: blur(0.5rem);
   }
   .v-navigation-drawer__content {
     display: flex;

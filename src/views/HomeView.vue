@@ -1,7 +1,5 @@
-<script setup lang="ts">
-import BasicCard from '../components/BasicCard.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <main></main>
+  <v-container> holi </v-container>
 </template>

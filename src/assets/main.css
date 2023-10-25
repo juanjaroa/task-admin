@@ -15,9 +15,9 @@
   outline-offset: -2px;
   background: linear-gradient(
     86deg,
-    rgba(var(--v-theme-surface), 0.2) 11.14%,
-    rgba(var(--v-theme-surface), 0.3) 113.29%
+    rgba(var(--v-theme-surface), 0.3) 11.14%,
+    rgba(var(--v-theme-surface), 0.5) 113.29%
   ) !important;
   background-blend-mode: overlay;
-  backdrop-filter: blur(2rem);
+  backdrop-filter: blur(1.25rem);
 }
