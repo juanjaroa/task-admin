@@ -1,4 +1,4 @@
-import './assets/main.css'
+import './assets/main.scss'
 /* import {myCustomLightTheme} from './glass.js' */
 
 import { createApp } from 'vue'
@@ -22,16 +22,24 @@ const vuetify = createVuetify({
     themes: {
       light: {
         colors: {
-          'surface-variant': '#337AB7',
-          secondary: '#b0bec5',
-          accent: '#8c9eff',
-          error: '#b71c1c'
+          primary: '#358663',
+          secondary: '#337AB7',
+          success: '#229676',
+          error: '#FF5B5B',
+          'on-surface': '#393d40',
+          'on-surface-variant': '#525252',
+          'onsurface-v': '#525252'
         }
       },
       dark: {
         colors: {
           primary: '#358663',
-          'surface-bright': '#FFFFFF'
+          secondary: '#337AB7',
+          success: '#229676',
+          error: '#FF5B5B',
+          'on-surface': '#FFFFFF',
+          'on-surface-variant': '#b0b0b0',
+          'onsurface-v': '#b0b0b0'
         }
       }
     }

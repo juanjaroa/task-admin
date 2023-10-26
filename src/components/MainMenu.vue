@@ -3,7 +3,7 @@
     v-model="drawer"
     expand-on-hover
     :rail="rail"
-    rounded="lg"
+    rounded="rem"
     rail-width="86"
     permanent
     class="glass-surface"
@@ -14,7 +14,7 @@
     <v-list-item prepend-avatar="/img/avatar.jpg" title="jRoa" class="profile-item" nav>
       <template v-slot:append>
         <v-switch
-          v-model="plop"
+          v-model="isDarkMode"
           color="primary"
           inset
           persistent-hint
@@ -35,8 +35,8 @@
         :title="item.title"
         :to="item.route"
         :prepend-icon="item.icon"
-        :color="theme.global.current.value.dark ? '#FFFFFF' : '#337AB7'"
-        :base-color="theme.global.current.value.dark ? '#B4C9CF' : '#3b3638'"
+        :color="isDarkMode ? 'on-surface' : 'primary'"
+        :base-color="isDarkMode ? 'onsurface-v' : ''"
       >
         <v-overlay
           v-if="item.subMenu"
@@ -52,8 +52,8 @@
               :title="subItem.subItem"
               :to="subItem.route"
               class="px-4 py-2"
-              :color="theme.global.current.value.dark ? '#FFFFFF' : '#337AB7'"
-              :base-color="theme.global.current.value.dark ? '#B4C9CF' : '#3b3638'"
+              :color="isDarkMode ? '#FFFFFF' : '#337AB7'"
+              :base-color="isDarkMode ? '#B4C9CF' : '#3b3638'"
               prepend-icon="mdi-paperclip"
             ></v-list-item>
           </v-list>
@@ -140,7 +140,7 @@ const navItems = [
   }
 ]
 
-let plop = computed(() => {
+let isDarkMode = computed(() => {
   return theme.global.current.value.dark
 })
 
@@ -153,7 +153,7 @@ onMounted(() => {
 })
 const theme = useTheme()
 const toggleTheme = () => {
-  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+  theme.global.name.value = isDarkMode.value ? 'light' : 'dark'
   localStorage.setItem('theme_name', theme.global.name.value)
 }
 </script>

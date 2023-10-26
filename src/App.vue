@@ -2,7 +2,9 @@
   <v-layout class="pa-8">
     <MainMenu />
 
-    <RouterView />
+    <v-container fluid tag="main" class="pa-0">
+      <RouterView />
+    </v-container>
   </v-layout>
 </template>
 
@@ -12,6 +14,6 @@ import MainMenu from './components/MainMenu.vue'
 
 <style lang="scss">
 .v-layout {
-  gap: 2rem;
+  gap: 1.5rem;
 }
 </style>
