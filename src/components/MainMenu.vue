@@ -1,21 +1,28 @@
 <template>
   <v-navigation-drawer
-    v-model="drawer"
-    expand-on-hover
-    :rail="rail"
+    :model-value="mobile ? drawer : true"
+    :expand-on-hover="!mobile"
+    :rail="mobile ? false : rail"
     rounded="rem"
     rail-width="86"
     permanent
     class="glass-surface"
-    :elevation="rail ? 12 : 0"
+    :elevation="rail ? 12 : 1"
     tag="header"
     width="350"
+    :location="mobile ? 'bottom' : 'start'"
+    :temporary="mobile"
   >
+    <div
+      class="toggle-bottom-navigation bg-surface"
+      v-show="mobile"
+      @click="console.log(drawer), (drawer = !drawer)"
+    ></div>
     <v-list-item prepend-avatar="/img/avatar.jpg" title="jRoa" class="profile-item" nav>
       <template v-slot:append>
         <v-switch
           v-model="isDarkMode"
-          color="primary"
+          color="surface"
           inset
           persistent-hint
           @click="toggleTheme"
@@ -37,6 +44,7 @@
         :prepend-icon="item.icon"
         :color="isDarkMode ? 'on-surface' : 'primary'"
         :base-color="isDarkMode ? 'onsurface-v' : ''"
+        @click="drawer = !drawer"
       >
         <v-overlay
           v-if="item.subMenu"
@@ -60,7 +68,7 @@
         </v-overlay>
       </v-list-item>
     </v-list>
-    <footer class="d-flex" style="min-width: 8rem">
+    <footer class="d-flex" style="min-width: 8rem" v-if="!mobile">
       <v-btn
         variant="text"
         size="small"
@@ -78,7 +86,11 @@ import { mdiAccount } from '@mdi/js'
 
 import { ref, onMounted, computed } from 'vue'
 
-const drawer = ref(true)
+import { useDisplay } from 'vuetify'
+
+const { mobile } = useDisplay()
+
+const drawer = ref(false)
 const rail = ref(true)
 
 const navItems = [
@@ -92,15 +104,21 @@ const navItems = [
   {
     title: 'Planning',
     value: 2,
-    route: '/about',
+    route: '/planning',
     icon: 'mdi-calendar-blank-outline',
     subMenu: false
   },
   {
-    title: 'People',
+    title: 'Color Palette',
     value: 3,
+    route: '/color-palette',
+    icon: 'mdi-palette'
+  },
+  {
+    title: 'Sub-item Test',
+    value: 4,
     route: '',
-    icon: 'mdi-calendar-account-outline',
+    icon: 'mdi-file-tree',
     subMenu: [
       {
         subItem: 'Sub item 1',
@@ -113,30 +131,6 @@ const navItems = [
         icon: 'mdi-view-dashboard-outline'
       }
     ]
-  },
-  {
-    title: 'Register',
-    value: 4,
-    route: '',
-    icon: 'mdi-format-list-text'
-  },
-  {
-    title: 'Task manager',
-    value: 5,
-    route: '',
-    icon: 'mdi-clipboard-text'
-  },
-  {
-    title: 'Accounting',
-    value: 6,
-    route: '',
-    icon: 'mdi-card-account-details-star-outline'
-  },
-  {
-    title: 'Reports',
-    value: 7,
-    route: '',
-    icon: 'mdi-file-chart-outline'
   }
 ]
 
@@ -162,6 +156,26 @@ const toggleTheme = () => {
   min-height: calc(100vh - 4rem) !important;
   position: sticky !important;
   top: 2rem !important;
+  &.v-navigation-drawer--bottom {
+    position: fixed !important;
+    top: unset !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    transform: translateY(calc(100% - 1.5rem)) !important;
+    min-height: fit-content !important;
+    padding-top: 2rem;
+    &.v-navigation-drawer--active {
+      transform: translateY(0%) !important;
+    }
+    .v-list {
+      &.menu-items {
+        direction: ltr !important;
+        .v-list-item {
+          direction: ltr;
+        }
+      }
+    }
+  }
   &:not(.v-navigation-drawer--rail) {
     backdrop-filter: blur(0.5rem);
   }
@@ -207,6 +221,32 @@ const toggleTheme = () => {
   }
 }
 
+.v-theme--light {
+  .toggle-theme {
+    .v-switch__track {
+      background-color: rgb(var(--v-theme-surface));
+    }
+    .v-switch__thumb {
+      background-color: rgba(var(--v-theme-surface), 1);
+      i {
+        color: rgb(var(--v-theme-warning));
+      }
+    }
+  }
+}
+.v-theme--dark {
+  .toggle-theme {
+    .v-switch__track {
+      background-color: rgb(var(--v-theme-surface));
+    }
+    .v-switch__thumb {
+      background-color: rgba(var(--v-theme-surface), 1);
+      i {
+        color: rgb(var(--v-theme-warning));
+      }
+    }
+  }
+}
 .toggle-theme {
   position: relative;
   .v-selection-control {
@@ -216,7 +256,6 @@ const toggleTheme = () => {
     }
     &:not(.v-selection-control--dirty) {
       i {
-        color: darkorange;
       }
     }
   }
@@ -225,6 +264,26 @@ const toggleTheme = () => {
     top: 100%;
     width: 100%;
     display: none;
+  }
+}
+.toggle-bottom-navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1.5rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  opacity: 0.25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 1px;
+    background-color: rgba(var(--v-theme-on-surface), 0.5);
   }
 }
 

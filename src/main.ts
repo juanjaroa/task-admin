@@ -44,6 +44,10 @@ const vuetify = createVuetify({
       }
     }
   },
+  display: {
+    mobileBreakpoint: 'md',
+    
+  },
   components,
   directives
 })

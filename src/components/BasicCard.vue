@@ -25,8 +25,8 @@ $bgColor: red;
   outline-offset: -3px;
   background: linear-gradient(
     86deg,
-    rgba(255, 255, 255, 0.25) 11.14%,
-    rgba(255, 255, 255, 0.5) 113.29%
+    rgba(var(--v-theme-surface), 0.25) 11.14%,
+    rgba(var(--v-theme-surface), 0.5) 113.29%
   );
   background-blend-mode: overlay;
   box-shadow: 0px 1.1966px 29.91505px 0px rgba(69, 42, 124, 0.1);
@@ -39,7 +39,7 @@ $bgColor: red;
     min-width: initial;
     width: 100%;
   }
-  color: red;
+
   display: flex;
   align-items: center;
   justify-content: center;
