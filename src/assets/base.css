@@ -64,7 +64,7 @@ body {
   color: var(--color-text);
   background: url(./bg.webp);
   background-size: cover;
-  background-position: bottom left;
+  background-position: center bottom;
   background-attachment: fixed;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

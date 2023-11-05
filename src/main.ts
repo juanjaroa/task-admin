@@ -26,8 +26,9 @@ const vuetify = createVuetify({
           secondary: '#337AB7',
           success: '#229676',
           error: '#FF5B5B',
-          'on-surface': '#393d40',
-          'on-surface-variant': '#525252',
+          'on-surface-variant': '#393d40',
+          'on-surface': '#525252',
+          'surface-variant': '#dcdcdc',
           'onsurface-v': '#525252'
         }
       },
@@ -37,8 +38,9 @@ const vuetify = createVuetify({
           secondary: '#337AB7',
           success: '#229676',
           error: '#FF5B5B',
-          'on-surface': '#FFFFFF',
-          'on-surface-variant': '#b0b0b0',
+          'on-surface-variant': '#FFFFFF',
+          'on-surface': '#b0b0b0',
+          'surface-variant': '#454545',
           'onsurface-v': '#b0b0b0'
         }
       }

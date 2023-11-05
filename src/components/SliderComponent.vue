@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <section class="cards-section">
     <swiper-container
       class="mySwiper"
       grab-cursor="true"
@@ -17,7 +17,7 @@
         ><BasicCard :text="'Card ' + (index + 1)"
       /></swiper-slide>
     </swiper-container>
-  </div>
+  </section>
 </template>
 <script lang="ts" setup>
 import BasicCard from '@/components/BasicCard.vue'
@@ -31,15 +31,14 @@ register()
 } */
 </script>
 <style lang="scss">
-.about {
+.cards-section {
+  height: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 1rem;
+  align-items: center;
 }
 swiper-container {
-  min-height: 8vh;
-  min-width: 300px;
+  width: 100%;
   max-width: 600px;
 }
 

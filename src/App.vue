@@ -14,6 +14,6 @@ import MainMenu from './components/MainMenu.vue'
 
 <style lang="scss">
 .v-layout {
-  gap: 1.5rem;
+  gap: 2rem;
 }
 </style>
