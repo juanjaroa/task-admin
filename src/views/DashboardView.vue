@@ -27,5 +27,11 @@ import DashboardBody from '@/components/DashboardBody.vue'
 <style lang="scss">
 header {
   gap: 3rem;
+  @media (max-width: 900px) {
+    gap: 2rem;
+    @media (max-width: 600px) {
+      gap: 1rem;
+    }
+  }
 }
 </style>

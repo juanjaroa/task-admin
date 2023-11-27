@@ -1,8 +1,6 @@
 <template>
   <div class="basic-card" :class="{ dark: props.dark }">
-    <div class="content">
-      <p>{{ text }}</p>
-    </div>
+    <div class="content"></div>
   </div>
 </template>
 <script setup lang="ts">
@@ -32,7 +30,7 @@ $bgColor: red;
   box-shadow: 0px 1.1966px 29.91505px 0px rgba(69, 42, 124, 0.1);
   backdrop-filter: blur(2rem);
   &.dark {
-    /* outline-color: rgba(52, 67, 71, 0.075); */
+    outline-color: rgba(52, 67, 71, 0.075);
     background: linear-gradient(181deg, rgba(0, 0, 0, 0.25) 11.4%, rgba(0, 0, 0, 0.5) 113.29%);
   }
   @media (max-width: 320px) {

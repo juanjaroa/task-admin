@@ -58,6 +58,10 @@ body {
 }
 
 .v-input {
+  position: relative;
+  margin-top: 0.25rem;
+  /* width: 100%;
+  min-width: max-content; */
   .v-field {
     background-color: inherit !important;
     .v-field__prepend-inner {
@@ -73,5 +77,27 @@ body {
     input:placeholder {
       font-weight: 700;
     }
+  }
+  .v-input__details {
+    position: absolute;
+    inset: 100% 0 0 0;
+  }
+  label {
+    font-size: 0.875rem;
+  }
+  .v-selection-control-group {
+    width: max-content;
+    @media (max-width: 600px) {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .v-selection-control:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+  &.v-radio-group {
+    margin-top: 1em;
+    width: 100%;
+    min-width: max-content;
   }
 }

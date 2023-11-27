@@ -1,7 +1,7 @@
 <template>
   <v-card class="d-flex flex-column pa-8 rounded-lg glass-surface">
     <v-card-text>
-      <labe>
+      <label class="input-label">
         User name
         <v-text-field
           type="text"
@@ -15,8 +15,8 @@
           center-affix
           class="glass-surface rounded-lg"
         ></v-text-field>
-      </labe>
-      <label>
+      </label>
+      <label class="input-label">
         User type
         <v-select
           placeholder="Choose an option"
@@ -32,7 +32,7 @@
           :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
         ></v-select>
       </label>
-      <label>
+      <label class="input-label">
         Data type
         <v-select
           placeholder="Choose an option"
@@ -48,7 +48,7 @@
           :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
         ></v-select>
       </label>
-      <labe>
+      <label class="input-label">
         Registration
         <v-text-field
           type="date"
@@ -62,8 +62,8 @@
           center-affix
           class="glass-surface rounded-lg"
         ></v-text-field>
-      </labe>
-      <label>
+      </label>
+      <label class="input-label">
         Service type
         <v-select
           placeholder="Choose an option"
@@ -79,12 +79,12 @@
           :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
         ></v-select>
       </label>
-      <label>
+      <label class="input-label">
         Status
         <v-radio-group
           inline
           color="onsurface"
-          density="comfortable"
+          density="compact"
           false-icon="mdi-square-rounded-outline"
           true-icon="mdi-sticker-check-outline"
           class="text-on-background"
@@ -121,19 +121,21 @@
 <script lang="ts" setup></script>
 <style lang="scss">
 .v-card {
-  gap: 1.5rem;
+  gap: 1.25rem;
 
   .v-card-text {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
     grid-gap: 1.5rem 2rem;
+    padding: 0;
     @media (max-width: 900px) {
-      grid-template-columns: 1fr 1fr;
       grid-gap: 1rem 1.5rem;
       @media (max-width: 600px) {
-        grid-template-columns: 1fr;
       }
     }
+  }
+  .v-card__underlay {
+    display: none;
   }
 }
 </style>
