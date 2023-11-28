@@ -17,7 +17,7 @@
     <FooterMenu @switch-pined="rail = !rail" :toggle-pin="rail" />
   </v-navigation-drawer>
 </template>
-<script lang="ts" setup>
+<script setup>
 import { ref } from 'vue'
 
 import { useDisplay } from 'vuetify'

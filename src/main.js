@@ -1,5 +1,4 @@
 import './assets/main.scss'
-/* import {myCustomLightTheme} from './glass.js' */
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -47,8 +46,7 @@ const vuetify = createVuetify({
     }
   },
   display: {
-    mobileBreakpoint: 'md',
-    
+    mobileBreakpoint: 'md'
   },
   components,
   directives

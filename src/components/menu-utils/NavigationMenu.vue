@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <v-list density="compact" class="menu-items" nav tag="nav">
     <v-list-item
       v-for="(item, index) in navItems"
@@ -33,7 +33,17 @@
     </v-list-item>
   </v-list>
 </template>
-<script lang="ts" setup>
+
+<script setup>
+import { computed } from 'vue'
+
+import { useTheme } from 'vuetify'
+
+const theme = useTheme()
+const isDarkMode = computed(() => {
+  return theme.global.current.value.dark
+})
+
 const navItems = [
   {
     title: 'Cards',
@@ -76,6 +86,7 @@ const navItems = [
   }
 ]
 </script>
+
 <style lang="css">
 .v-list {
   display: flex;

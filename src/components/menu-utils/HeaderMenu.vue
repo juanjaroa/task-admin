@@ -16,19 +16,19 @@
     </template>
   </v-list-item>
 </template>
-<script setup lang="ts">
+
+<script setup>
 import { computed, onMounted } from 'vue'
 import { useTheme } from 'vuetify'
 
 const theme = useTheme()
-let isDarkMode = computed(() => {
+const isDarkMode = computed(() => {
   return theme.global.current.value.dark
 })
 
 onMounted(() => {
   const themeName = localStorage.getItem('theme_name')
   if (themeName && themeName === 'dark') {
-    const theme = useTheme()
     theme.global.name.value = themeName
   }
 })
@@ -38,6 +38,7 @@ const toggleTheme = () => {
   localStorage.setItem('theme_name', theme.global.name.value)
 }
 </script>
+
 <style lang="scss" scoped>
 .toggle-theme {
   position: relative;

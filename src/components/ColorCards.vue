@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <v-row v-for="myTheme in myThemes" :key="myTheme">
     <v-col cols="12" md="4">
@@ -8,7 +6,7 @@
         <div
           v-for="color in myColors"
           :key="color"
-          class="d-flex aling-center flex-wrap justify-space-between mb-2"
+          class="d-flex align-center flex-wrap justify-space-between mb-2"
         >
           <p :class="'text-' + color" class="font-weight-medium px-2">{{ color }}</p>
 
@@ -28,7 +26,7 @@
         <div
           v-for="color in myColors"
           :key="color"
-          class="d-flex aling-center flex-wrap justify-space-between mb-2"
+          class="d-flex align-center flex-wrap justify-space-between mb-2"
         >
           <p :class="'text-' + color" class="font-weight-medium px-2">{{ color }}</p>
 
@@ -50,7 +48,7 @@
         <div
           v-for="color in myColors"
           :key="color"
-          class="d-flex aling-center flex-wrap justify-space-between mb-2"
+          class="d-flex align-center flex-wrap justify-space-between mb-2"
         >
           <p :class="'text-' + color" class="font-weight-medium px-2">{{ color }}</p>
 
@@ -66,9 +64,10 @@
     </v-col>
   </v-row>
 </template>
-<script lang="ts" setup>
-let myThemes: string[] = ['light', 'dark']
-let myColors: string[] = [
+
+<script setup>
+const myThemes = ['light', 'dark']
+const myColors = [
   'background',
   'surface',
   'surface-variant',
@@ -83,6 +82,7 @@ let myColors: string[] = [
   'error'
 ]
 </script>
+
 <style scoped lang="scss">
 .on-surface {
   background-color: rgba(var(--v-theme-on-surface), 1);

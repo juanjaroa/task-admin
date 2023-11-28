@@ -8,7 +8,7 @@
   </v-layout>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import MainMenu from './components/MainMenu.vue'
 </script>
 

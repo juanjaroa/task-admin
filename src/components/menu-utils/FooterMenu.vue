@@ -11,9 +11,10 @@
     ></v-btn>
   </footer>
 </template>
-<script lang="ts" setup>
-defineProps<{
-  togglePin: boolean
-}>()
+<script setup>
+import { useDisplay } from 'vuetify'
+const { mobile } = useDisplay()
+const { togglePin } = defineProps(['togglePin'])
 </script>
+
 <style lang=""></style>

@@ -108,7 +108,7 @@
       >
       <v-btn
         variant="flat"
-        elevation=""
+        elevation="0"
         color="surface"
         size="large"
         class="rounded-inside"
@@ -118,7 +118,7 @@
     </v-card-actions>
   </v-card>
 </template>
-<script lang="ts" setup></script>
+<script setup></script>
 <style lang="scss">
 .v-card {
   gap: 1.25rem;

@@ -19,7 +19,7 @@
   </header>
   <DashboardBody />
 </template>
-<script lang="ts" setup>
+<script setup>
 import UserMenu from '@/components/dashboard-utils/UserMenu.vue'
 import NotificationsButton from '@/components/dashboard-utils/NotificationsButton.vue'
 import DashboardBody from '@/components/DashboardBody.vue'

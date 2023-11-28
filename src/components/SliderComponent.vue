@@ -19,7 +19,7 @@
     </swiper-container>
   </section>
 </template>
-<script lang="ts" setup>
+<script setup>
 import BasicCard from '@/components/BasicCard.vue'
 import { register } from 'swiper/element/bundle'
 

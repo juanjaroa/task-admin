@@ -12,7 +12,7 @@
     </v-expansion-panel>
   </v-expansion-panels>
 </template>
-<script lang="ts" setup>
+<script setup>
 const lorem = 'lorem'
 </script>
 <style lang="scss">

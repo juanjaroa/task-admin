@@ -3,7 +3,7 @@
     <div class="content"></div>
   </div>
 </template>
-<script setup lang="ts">
+<script setup>
 const props = defineProps({
   dark: Boolean,
   text: String
